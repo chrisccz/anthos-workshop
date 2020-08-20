@@ -23,10 +23,9 @@ echo "### "
 kubectx central
 # Create istio-system namespace
 kubectl create namespace istio-system
-# Tiller service account
+# Helm service account
 kubectl --context central apply -f ${WORK_DIR}/istio-${ISTIO_VERSION}/install/kubernetes/helm/helm-service-account.yaml
-# Install tiller
-helm init --service-account tiller --wait
+
 
 # wait for helm to install in central cluster
 #until timeout 10 helm version; do sleep 10; done
@@ -60,10 +59,9 @@ helm install istio ${WORK_DIR}/istio-${ISTIO_VERSION}/install/kubernetes/helm/is
 kubectx remote
 # Create istio-system namespace
 kubectl create namespace istio-system
-# Tiller service account
+# Helm service account
 kubectl --context remote apply -f ${WORK_DIR}/istio-${ISTIO_VERSION}/install/kubernetes/helm/helm-service-account.yaml
-# Install tiller
-helm init --service-account tiller --wait
+
 
 # wait for helm to install in central cluster
 #until timeout 10 helm version; do sleep 10; done

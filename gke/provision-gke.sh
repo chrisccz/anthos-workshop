@@ -37,7 +37,6 @@ else
         --enable-autoscaling --min-nodes 2 --max-nodes 8 \
         --network "default" \
         --enable-ip-alias \
-        --cluster-version=${CLUSTER_VERSION} \
         --enable-stackdriver-kubernetes \
         --workload-pool=${PROJECT}.svc.id.goog \
         --labels csm= \
